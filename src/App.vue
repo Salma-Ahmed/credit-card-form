@@ -1,19 +1,19 @@
 <template>
   <div class="container box-shadow">
-    <!-- <Ccard card="123" /> -->
+    <Card card="123" />
     <Form />
   </div>
 </template>
 
 <script>
 import Form from "./components/Form.vue";
-import Ccard from "./components/Ccard.vue";
+import Card from "./components/Card/Card.vue";
 
 export default {
   name: "App",
   components: {
     Form,
-    Ccard,
+    Card,
   },
 };
 </script>
@@ -45,12 +45,18 @@ body {
   padding: 30px;
   border-radius: 5px;
   background: #fff;
+  padding: 150px 30px 30px 30px;
 }
 .box-shadow {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 .flex {
   display: flex;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .form-group {
   max-width: 100%;
