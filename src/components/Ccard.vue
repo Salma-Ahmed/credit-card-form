@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Card",
+  name: "Ccard",
   props: { card: String },
 };
 </script>
