@@ -1,7 +1,10 @@
 <template>
   <div class="form-group">
-    <select :name="name" :id="name">
-      <option>{{ name }}</option>
+    <select :model="selectedValue" :name="title" :id="title">
+      <option :value="title">{{ title }}</option>
+      <option v-for="option in options" :key="option" :value="option">
+        {{ option }}</option
+      >
     </select>
   </div>
 </template>
@@ -10,10 +13,22 @@
 export default {
   name: "Dropdown",
   props: {
-    name: String,
-    // options: Array,
+    title: String,
+    options: Array,
   },
-  methods: {},
+  // data: () => ({
+  //   selectedValue: "",
+  // }),
+  computed: {
+    selectedValue() {
+      return this.title;
+    },
+  },
+  methods: {
+    mounted() {
+      // console.log(this.options);
+    },
+  },
 };
 </script>
 

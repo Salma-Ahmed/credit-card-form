@@ -6,7 +6,7 @@
       <img src="../../assets/visa.png" alt="visa" width="60" />
     </div>
     <div class="row card-numbers">
-      <p>####</p>
+      <p>{{ cardNumber }}</p>
       <p>####</p>
       <p>####</p>
       <p>####</p>
@@ -25,6 +25,17 @@
 <script>
 export default {
   name: "CardFront",
+  data: () => ({
+    cardNumber: "",
+  }),
+  computed: {
+    cardNumber() {
+      return this.$store.getters.getCardNumber;
+    },
+  },
+  // mounted() {
+  //   this.cardNumber = this.$store.getters.getCardNumber;
+  // },
 };
 </script>
 

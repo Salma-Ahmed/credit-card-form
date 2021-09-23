@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
     <label>{{ label }}</label>
-    <input :type="type" />
+    <input :type="type" v-model="fieldValue" />
   </div>
 </template>
 
@@ -12,7 +12,13 @@ export default {
     label: String,
     type: String,
   },
-  methods: {},
+  methods: {
+    data() {
+      return {
+        fieldValue: "",
+      };
+    },
+  },
 };
 </script>
 

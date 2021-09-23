@@ -15,6 +15,11 @@ export default {
     Form,
     Card,
   },
+  mounted() {
+    this.$store.dispatch("setCardNumber", "####");
+    this.$store.dispatch("setYears");
+    this.$store.dispatch("setMonths");
+  },
 };
 </script>
 
