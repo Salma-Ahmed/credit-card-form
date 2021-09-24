@@ -1,3 +1,4 @@
+<!--Shared componenet bec it can be used anywhere not only in the card form-->
 <template>
   <div class="form-group">
     <select :model="selectedValue" :name="title" :id="title" @change="onChange">
@@ -24,18 +25,13 @@ export default {
     },
   },
   methods: {
-    mounted() {
-      // console.log(this.options);
-    },
+    mounted() {},
   },
 };
 </script>
 
 <style lang="less" scoped>
 select {
-  //   -moz-appearance: none; /* Firefox */
-  //   -webkit-appearance: none; /* Safari and Chrome */
-  //   appearance: none;
   text-transform: capitalize;
 }
 </style>

@@ -1,3 +1,4 @@
+<!--Can only be used for the card tht's why it is in the card folder-->
 <template>
   <div class="card ">
     <div class="card-inner" :class="flipCard ? 'flipped' : ''">
@@ -18,6 +19,7 @@ export default {
     CardBack,
   },
   computed: {
+    //boolean for card flipping
     flipCard() {
       return this.$store.getters.getFlipCard;
     },
@@ -115,7 +117,6 @@ export default {
       transform: rotateY(180deg);
     }
   }
-  // &:hover .card-inner
   .flipped {
     transform: rotateY(-180deg);
   }

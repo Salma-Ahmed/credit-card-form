@@ -16,7 +16,6 @@ export default {
     Card,
   },
   mounted() {
-    // this.$store.dispatch("setCardNumber", "####");
     this.$store.dispatch("setYears");
     this.$store.dispatch("setMonths");
   },
@@ -95,7 +94,6 @@ input[type="number"] {
 //animate text
 .text-animated {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   letter-spacing: 0.15em; /* Adjust as needed */
   animation: typing 3.5s steps(16, end), blink-caret 0.75s step-end infinite;
@@ -110,45 +108,7 @@ input[type="number"] {
   }
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
-  }
-}
 input:focus {
   border-color: #0055d4;
-}
-
-//animate text
-.flip-animate {
-  perspective: 1000px;
-
-  p {
-    position: relative;
-    display: inline-block;
-    padding: 0;
-    transition: transform 0.3s;
-    transform-origin: 50% 0;
-    transform-style: preserve-3d;
-    transform: rotateX(90deg) translateY(-22px);
-  }
-
-  p:before {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: attr(data-hover);
-    transition: color 0.3s;
-    transform: rotateX(-90deg);
-    transform-origin: 50% 0;
-    text-align: center;
-  }
 }
 </style>

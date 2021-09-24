@@ -47,17 +47,9 @@ export default {
   }),
   methods: {
     onCardNumberChange(e) {
-      // mask the input value to match credit card format
-      // let formattedValue = e.target.value;
-
-      // if (formattedValue) {
-      //   formattedValue = formattedValue
-      //     .match(/.{1,4}/g)
-      //     .toString()
-      //     .split(",")
-      //     .join(" ");
-      // }
+      //change direction of the card
       this.$store.dispatch("setFlipCard", false);
+      //dispatch to reflect in the card
       this.$store.dispatch("setCardNumber", e.target.value);
     },
     onCardHolderChange(e) {

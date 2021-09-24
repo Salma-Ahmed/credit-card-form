@@ -17,16 +17,20 @@ export default {
   },
   data: () => ({}),
   computed: {
+    //list of years (20)
     years() {
       return this.$store.getters.getYears;
     },
+    //list of months
     months() {
       return this.$store.getters.getMonths;
     },
   },
   methods: {
     onYearChange(e) {
+      //change direction of the card
       this.$store.dispatch("setFlipCard", false);
+      //dispatch to reflect in the card
       this.$store.dispatch("setCurrentYear", e.target.value);
     },
     onMonthChange(e) {

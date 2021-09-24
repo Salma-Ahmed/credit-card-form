@@ -8,15 +8,14 @@
     <div class="row card-numbers">
       <p v-for="number in cardNumber.split(' ')" :key="number">
         <span v-for="num in number.split('')" :key="num">{{ num }}</span>
-        <!-- <span v-if="!number">#</span> -->
       </p>
     </div>
     <div class="row card-holder">
       <p>Card Holder</p>
       <p>Expires</p>
     </div>
-    <div class="row name ">
-      <p>{{ cardHolder }}</p>
+    <div class="row name">
+      <p class="text-animated">{{ cardHolder }}</p>
       <p>
         {{ currentMonth }}
         <span v-if="currentMonth || currentYear">/</span>
@@ -32,8 +31,6 @@ export default {
   data: () => ({}),
   computed: {
     cardNumber() {
-      console.log(this.$store.getters.getCardNumber.length);
-
       return this.$store.getters.getCardNumber;
     },
     cardHolder() {

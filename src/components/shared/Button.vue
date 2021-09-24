@@ -1,3 +1,4 @@
+<!--Shared componenet bec it can be used anywhere not only in the card form-->
 <template>
   <button
     @click="onClick()"
