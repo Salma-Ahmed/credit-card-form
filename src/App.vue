@@ -16,7 +16,7 @@ export default {
     Card,
   },
   mounted() {
-    this.$store.dispatch("setCardNumber", "####");
+    // this.$store.dispatch("setCardNumber", "####");
     this.$store.dispatch("setYears");
     this.$store.dispatch("setMonths");
   },
@@ -78,5 +78,17 @@ body {
 label {
   font-size: 12px;
   margin-bottom: 5px;
+}
+
+//remove arrows from input type number
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>

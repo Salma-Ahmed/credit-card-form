@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <select :model="selectedValue" :name="title" :id="title">
+    <select :model="selectedValue" :name="title" :id="title" @change="onChange">
       <option :value="title">{{ title }}</option>
       <option v-for="option in options" :key="option" :value="option">
         {{ option }}</option
@@ -15,10 +15,9 @@ export default {
   props: {
     title: String,
     options: Array,
+    onChange: Function,
   },
-  // data: () => ({
-  //   selectedValue: "",
-  // }),
+  data: () => ({}),
   computed: {
     selectedValue() {
       return this.title;

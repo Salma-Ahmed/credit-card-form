@@ -1,6 +1,6 @@
 <template>
   <div class="card ">
-    <div class="card-inner">
+    <div class="card-inner" :class="flipCard ? 'flipped' : ''">
       <CardFront />
       <CardBack />
     </div>
@@ -16,6 +16,11 @@ export default {
   components: {
     CardFront,
     CardBack,
+  },
+  computed: {
+    flipCard() {
+      return this.$store.getters.getFlipCard;
+    },
   },
 };
 </script>
@@ -92,6 +97,9 @@ export default {
           height: 35px;
           z-index: 1;
           border-radius: 5px;
+          color: #000;
+          text-align: right;
+          padding: 8px;
         }
       }
       .signature {
@@ -102,7 +110,8 @@ export default {
       transform: rotateY(180deg);
     }
   }
-  &:hover .card-inner {
+  // &:hover .card-inner
+  .flipped {
     transform: rotateY(-180deg);
   }
 }

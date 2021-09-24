@@ -16,8 +16,8 @@
       <p>Expires</p>
     </div>
     <div class="row name">
-      <p>Salma Elbouhy</p>
-      <p>10/25</p>
+      <p>{{ cardHolder }}</p>
+      <p>{{ currentMonth }}/{{ currentYear }}</p>
     </div>
   </div>
 </template>
@@ -25,17 +25,21 @@
 <script>
 export default {
   name: "CardFront",
-  data: () => ({
-    cardNumber: "",
-  }),
+  data: () => ({}),
   computed: {
     cardNumber() {
       return this.$store.getters.getCardNumber;
     },
+    cardHolder() {
+      return this.$store.getters.getCardHolder;
+    },
+    currentYear() {
+      return this.$store.getters.getCurrentYear;
+    },
+    currentMonth() {
+      return this.$store.getters.getCurrentMonth;
+    },
   },
-  // mounted() {
-  //   this.cardNumber = this.$store.getters.getCardNumber;
-  // },
 };
 </script>
 

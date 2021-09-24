@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
     <label>{{ label }}</label>
-    <input :type="type" v-model="fieldValue" />
+    <input :type="type" v-model="fieldValue" @keyup="onKeyUp" />
   </div>
 </template>
 
@@ -11,14 +11,11 @@ export default {
   props: {
     label: String,
     type: String,
+    onKeyUp: Function,
   },
-  methods: {
-    data() {
-      return {
-        fieldValue: "",
-      };
-    },
-  },
+  data: () => ({
+    fieldValue: "",
+  }),
 };
 </script>
 

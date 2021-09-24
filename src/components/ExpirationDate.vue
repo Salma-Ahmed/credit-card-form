@@ -2,8 +2,8 @@
   <div class="exp-date">
     <label>Expiration Date</label>
     <div class="dropdowns">
-      <Dropdown title="month" :options="months" />
-      <Dropdown title="year" :options="years" />
+      <Dropdown title="month" :options="months" :onChange="onMonthChange" />
+      <Dropdown title="year" :options="years" :onChange="onYearChange" />
     </div>
   </div>
 </template>
@@ -15,16 +15,21 @@ export default {
   components: {
     Dropdown,
   },
-  data: () => ({
-    // years: [],
-    // months: [],
-  }),
+  data: () => ({}),
   computed: {
     years() {
       return this.$store.getters.getYears;
     },
     months() {
       return this.$store.getters.getMonths;
+    },
+  },
+  methods: {
+    onYearChange(e) {
+      this.$store.dispatch("setCurrentYear", e.target.value);
+    },
+    onMonthChange(e) {
+      this.$store.dispatch("setCurrentMonth", e.target.value);
     },
   },
 };

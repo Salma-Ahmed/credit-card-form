@@ -4,7 +4,7 @@
     <div class="bar"></div>
     <div class="row card-cvv">
       <p>CVV</p>
-      <div></div>
+      <div>{{ cardCvv }}</div>
     </div>
     <div class="row signature">
       <p>SIGNATURE</p>
@@ -16,6 +16,11 @@
 <script>
 export default {
   name: "CardBack",
+  computed: {
+    cardCvv() {
+      return this.$store.getters.getCvv;
+    },
+  },
 };
 </script>
 

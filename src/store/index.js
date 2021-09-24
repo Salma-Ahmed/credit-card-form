@@ -2,15 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    cardNumber: '',
-    cardHolder: '',
-    expirationDate: {
-      month:'',
-      year:''
-    },
+    cardNumber: '####',
+    cardHolder: 'Salma Elbouhy',
+    currentYear:'',
+    currentMonth:'',
     cvv:'',
     years: [],
-    months: []
+    months: [],
+    flipCard: false
   },
   mutations: {
     //syncronous
@@ -18,25 +17,50 @@ export default createStore({
       state.cardNumber = payload
     },
     setCardHolder(state, payload) {
-      state.cardNumber = payload
-    },
-    setCardNumber(state, payload) {
-      state.cardNumber = payload
-    },
-    setCardNumber(state, payload) {
-      state.cardNumber = payload
+      state.cardHolder = payload
     },
     setYears(state, payload) {
       state.years = payload;
     },
     setMonths(state, payload) {
       state.months = payload;
+    },
+    setCvv(state, payload) {
+      state.cvv = payload;
+    },
+    setFlipCard(state, payload) {
+      state.flipCard = payload;
+    },
+    setCurrentYear(state, payload) {
+      state.currentYear = payload;
+    },
+    setCurrentMonth(state, payload) {
+      state.currentMonth = payload;
     }
   },
   actions: {
     //asyncronous
     setCardNumber(state, payload) {
       state.commit("setCardNumber", payload);
+    },
+
+    setCardHolder(state, payload) {
+      state.commit("setCardHolder", payload);
+    },
+
+    setCvv(state, payload) {
+      state.commit("setCvv", payload);
+    },
+
+    setFlipCard(state, payload) {
+      state.commit("setFlipCard", payload);
+    },
+
+    setCurrentYear(state, payload) {
+      state.commit("setCurrentYear", payload);
+    },
+    setCurrentMonth(state, payload) {
+      state.commit("setCurrentMonth", payload);
     },
 
     //create an array of 20 years (for instance) including current year
@@ -75,7 +99,16 @@ export default createStore({
     },
     getMonths: (state) => {
       return state.months
-    }
+    },
+    getFlipCard: (state) => {
+      return state.flipCard
+    },
+    getCurrentYear: (state) => {
+      return state.currentYear
+    },
+    getCurrentMonth: (state) => {
+      return state.currentMonth
+    },
 
   }
 })

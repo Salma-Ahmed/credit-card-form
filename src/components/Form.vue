@@ -1,8 +1,10 @@
 <template>
   <form>
-    <Input label="Card Number" type="text" />
-    <Input label="Card Name" type="text" />
-    <div class="conf-data"><Expiration /><Input label="CVV" type="text" /></div>
+    <Input label="Card Number" type="number" :onKeyUp="onCardNumberChange" />
+    <Input label="Card Name" type="text" :onKeyUp="onCardHolderChange" />
+    <div class="conf-data">
+      <Expiration /><Input label="CVV" type="number" :onKeyUp="onCvvChange" />
+    </div>
     <Button type="submit" text="Submit" color="#0055d4" />
   </form>
 </template>
@@ -19,9 +21,22 @@ export default {
     Input,
     Expiration,
   },
+  methods: {
+    onCardNumberChange(e) {
+      this.$store.dispatch("setFlipCard", false);
+      this.$store.dispatch("setCardNumber", e.target.value);
+    },
+    onCardHolderChange(e) {
+      this.$store.dispatch("setFlipCard", false);
+      this.$store.dispatch("setCardHolder", e.target.value);
+    },
+    onCvvChange(e) {
+      this.$store.dispatch("setFlipCard", true);
+      this.$store.dispatch("setCvv", e.target.value);
+    },
+  },
 };
 </script>
-
 <style lang="less">
 .conf-data {
   display: flex;
