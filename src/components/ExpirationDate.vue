@@ -26,9 +26,11 @@ export default {
   },
   methods: {
     onYearChange(e) {
+      this.$store.dispatch("setFlipCard", false);
       this.$store.dispatch("setCurrentYear", e.target.value);
     },
     onMonthChange(e) {
+      this.$store.dispatch("setFlipCard", false);
       this.$store.dispatch("setCurrentMonth", e.target.value);
     },
   },

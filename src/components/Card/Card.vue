@@ -41,7 +41,7 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 1s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
     .front,
     .back {
@@ -65,6 +65,11 @@ export default {
       .card-numbers {
         font-size: 24px;
         margin-top: 30px;
+        justify-content: flex-start;
+        p {
+          width: 22%;
+          margin: 0 1.5%;
+        }
       }
       .card-holder {
         font-size: 10px;

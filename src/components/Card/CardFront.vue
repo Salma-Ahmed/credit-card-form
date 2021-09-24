@@ -6,18 +6,22 @@
       <img src="../../assets/visa.png" alt="visa" width="60" />
     </div>
     <div class="row card-numbers">
-      <p>{{ cardNumber }}</p>
-      <p>####</p>
-      <p>####</p>
-      <p>####</p>
+      <p v-for="number in cardNumber.split(' ')" :key="number">
+        <span v-for="num in number.split('')" :key="num">{{ num }}</span>
+        <!-- <span v-if="!number">#</span> -->
+      </p>
     </div>
     <div class="row card-holder">
       <p>Card Holder</p>
       <p>Expires</p>
     </div>
-    <div class="row name">
+    <div class="row name ">
       <p>{{ cardHolder }}</p>
-      <p>{{ currentMonth }}/{{ currentYear }}</p>
+      <p>
+        {{ currentMonth }}
+        <span v-if="currentMonth || currentYear">/</span>
+        {{ currentYear.split("0")[1] }}
+      </p>
     </div>
   </div>
 </template>
@@ -28,6 +32,8 @@ export default {
   data: () => ({}),
   computed: {
     cardNumber() {
+      console.log(this.$store.getters.getCardNumber.length);
+
       return this.$store.getters.getCardNumber;
     },
     cardHolder() {

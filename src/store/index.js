@@ -2,8 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    cardNumber: '####',
-    cardHolder: 'Salma Elbouhy',
+    cardNumber: '#### #### #### ####',
+    cardHolder: '',
     currentYear:'',
     currentMonth:'',
     cvv:'',
@@ -39,9 +39,15 @@ export default createStore({
     }
   },
   actions: {
-    //asyncronous
+    //replace any unexisting number in card number eith a #.
     setCardNumber(state, payload) {
-      state.commit("setCardNumber", payload);
+      let defaultCardNumber = "#### #### #### ####";
+      let cardNumberPayload = [...payload];
+      cardNumberPayload.forEach((el,i) => {
+        defaultCardNumber = defaultCardNumber.substr(0, i) + el + defaultCardNumber.substr(i + el.length);
+     });
+     //commit
+      state.commit("setCardNumber", defaultCardNumber);
     },
 
     setCardHolder(state, payload) {

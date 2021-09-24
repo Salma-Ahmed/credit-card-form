@@ -1,9 +1,29 @@
 <template>
   <form>
-    <Input label="Card Number" type="number" :onKeyUp="onCardNumberChange" />
-    <Input label="Card Name" type="text" :onKeyUp="onCardHolderChange" />
+    <Input
+      name="cardNumber"
+      label="Card Number"
+      :max="20"
+      type="text"
+      :onKeyUp="onCardNumberChange"
+      :mask="cardNumberMask"
+    />
+    <Input
+      name="cardHolder"
+      label="Card Name"
+      type="text"
+      :max="20"
+      :onKeyUp="onCardHolderChange"
+    />
     <div class="conf-data">
-      <Expiration /><Input label="CVV" type="number" :onKeyUp="onCvvChange" />
+      <Expiration /><Input
+        name="cvv"
+        label="CVV"
+        :max="4"
+        type="number"
+        :onKeyUp="onCvvChange"
+        :mask="cvvMask"
+      />
     </div>
     <Button type="submit" text="Submit" color="#0055d4" />
   </form>
@@ -21,8 +41,22 @@ export default {
     Input,
     Expiration,
   },
+  data: () => ({
+    cardNumberMask: "#### #### #### ####",
+    cvvMask: "####",
+  }),
   methods: {
     onCardNumberChange(e) {
+      // mask the input value to match credit card format
+      // let formattedValue = e.target.value;
+
+      // if (formattedValue) {
+      //   formattedValue = formattedValue
+      //     .match(/.{1,4}/g)
+      //     .toString()
+      //     .split(",")
+      //     .join(" ");
+      // }
       this.$store.dispatch("setFlipCard", false);
       this.$store.dispatch("setCardNumber", e.target.value);
     },
